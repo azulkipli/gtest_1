@@ -20,7 +20,7 @@ function arr_sort(x, array) {
     }
   }
 
-//   console.log("sample " + x + " c", c);
+  //   console.log("sample " + x + " c", c);
 
   if (c === 0) {
     console.log("yes");
@@ -44,7 +44,8 @@ function arr_sort(x, array) {
 
   if (c > 1) {
     let val = customSort(array);
-    console.log("reverse", val[1]);
+    console.log("reverse", val);
+    // console.log("reverse", val[1]);
   }
 
   // same element value exist
@@ -76,20 +77,20 @@ function customSort(array) {
   // If the value is more than swapValue, put in a "more than" array
   for (let i = 0; i < array.length; i++) {
     if (array[i] < swapValue) {
-      // console.log('swapValue', i);
       lessArray.push(array[i]);
     } else {
-      if (i > 0) {
-        // console.log("swapValue", i);
-        changed.push(i);
-      }
       moreArray.push(array[i]);
     }
+    changed.push(swapValue);
   }
 
   // Combine the sorted arrays with the original pivot value and return
   let arr = customSort(lessArray).concat([swapValue], customSort(moreArray));
-  return [arr, changed];
+
+  console.log("moreArray", moreArray);
+  console.log("lessArray", lessArray);
+
+  return arr;
 }
 
 arr_sort(1, [2]);
@@ -98,3 +99,4 @@ arr_sort(3, [4, 2, 1]);
 arr_sort(4, [3, 3, 1, 2]);
 arr_sort(5, [6]);
 arr_sort(6, [1, 5, 4, 3, 2, 6]);
+// arr_sort(7, [1, 5, 2, 4, 3, 6]);
